@@ -1,12 +1,30 @@
-import Admin from '@/layouts/Admin';
+import type { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import '../styles/globals.css';
 
-import type { AppProps } from 'next/app';
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+	getLayout?: (page: ReactElement) => ReactNode;
+};
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
-	<Admin>
-		<Component {...pageProps} />
-	</Admin>
-);
+export default function MyApp({ Component, pageProps }: any) {
+	// const getLayout = Component.getLayout ?? ((page) => page);
+	const Layout = Component.layout || (({ children }: any) => <>{children}</>);
 
-export default MyApp;
+	return (
+		<>
+			<Head>
+				{/* <meta
+					name="viewport"
+					content="width=device-width, initial-scale=1, shrink-to-fit=no"
+				/> */}
+				<title>Notus NextJS by Creative Tim</title>
+				<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+			</Head>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</>
+	);
+}

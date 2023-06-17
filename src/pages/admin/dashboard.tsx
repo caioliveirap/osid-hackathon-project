@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Admin from '@/layouts/Admin';
 
-const Dashboard = () => {
+export default function Dashboard() {
 	return (
 		<div className="">
 			<span>teste</span>
@@ -27,7 +27,6 @@ const Dashboard = () => {
 			{/* <button onClick={signIn}>Teste</button> */}
 		</div>
 	);
-};
+}
 
 Dashboard.layout = Admin;
-export default Dashboard;
