@@ -33,10 +33,6 @@ const items: MenuItem[] = [
 		getItem(<Link href={'/admin/dashboard'}>Doações</Link>, '2'),
 		getItem('Campanhas', '3'),
 	]),
-	// getItem('Formulário', 'sub2', <TeamOutlined />, [
-	// 	getItem('Team 1', '4'),
-	// 	getItem('Team 2', '5'),
-	// ]),
 	getItem(
 		<Link href={'/admin/lista-de-doadores'}>Lista de Doadores</Link>,
 		'4',
@@ -48,11 +44,6 @@ const items: MenuItem[] = [
 		<FileOutlined />
 	),
 ];
-
-// const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
-// 	key,
-// 	label: `nav ${key}`,
-// }));
 
 const App: React.FC = ({ children }: any) => {
 	const {
