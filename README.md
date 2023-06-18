@@ -1,34 +1,128 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OSID Hackathon Project - Equipe 50%
 
-## Getting Started
+<h4 align="center"> 
+	🚧 Dulce Insights 🚧
+</h4>
 
-First, run the development server:
+<p align="center">
+	<img alt="Status Em Desenvolvimento" src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-green">
+	<img alt="Status Concluído" src="https://img.shields.io/badge/STATUS-CONCLU%C3%8DDO-brightgreen">
+</p>
+
+<p align="center">
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+</p>
+
+## 💻 Sobre o projeto
+
+📄 Dulce insights é a plataforma de BI voltada aos dados de doações das obras sociais irmã dulce
+
+## Projeto desenvolvido durante o **[Hackathon da OSID]**.
+
+## ⚙️ Funcionalidades
+
+- [x] Fluxo de doação:
+
+  - [x] Acesse `/auth/register`
+  - [x] Prencha o formulário
+  - [x] Redirecionado para `/doar`
+  - [x] Fluxo de doação
+    - Quantidade
+    - Tela de pagamento
+    - Tela de sucesso
+
+- [x] Dashboard:
+  - [x] Acesse `/auth/login`
+  - [x] Clique em entrar
+  - [x] Doações: `/admin/doacoes`
+  - [x] Campanhas: `/admin/campanhas`
+  - [x] Lista de doadores: `/admin/doadores`
+  - [x] Lista de doacoes: `/admin/doacoes`
+
+---
+
+## 🎨 Layout
+
+O layout da aplicação está disponível no Figma:
+
+<a href="https://www.figma.com/file/SP2BbR9KTIhgxn5fusQvGm/Hackathon-OSID-2023?type=design&node-id=1-2&t=LVUkgjdLFywRxsDo-0">
+  <img alt="Made by Equipe 50%" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
+---
+
+## 🛣️ Como executar o projeto
+
+Este projeto é divido em duas partes:
+
+1. Backend (pasta server)
+2. Frontend (pasta web)
+
+💡O Frontend precisa que o Backend esteja sendo executado para funcionar.
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+#### 🎲 Rodando o Backend (servidor)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
+# Clone este repositório
+$ git clone git@github.com:caioliveirap/osid-hackathon-project.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd osid-hackathon-project
+
+# Instale as dependências
+$ yarn
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn dev
+
+# O servidor inciará na porta:3000 - acesse http://localhost:3000
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <a href="https://github.com/cubos-academy/academy-template-readme-projects" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### 🧭 Rodando a aplicação web (Frontend)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
 
-## Learn More
+# Clone este repositório
+$ git clone git@github.com:cubos-academy/academy-template-readme-projects.git
 
-To learn more about Next.js, take a look at the following resources:
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd academy-template-readme-projects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Vá para a pasta da aplicação Front End
+$ cd web
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Instale as dependências
+$ npm install
 
-## Deploy on Vercel
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+
+---
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+#### **Website** ([React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/))
+
+- **[NextJS](https://nextjs.org/)**
+- **[Axios](https://github.com/axios/axios)**
