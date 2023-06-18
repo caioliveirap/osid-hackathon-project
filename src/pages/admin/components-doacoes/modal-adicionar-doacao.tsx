@@ -8,7 +8,7 @@ import {
 } from '@/lib/donation/services/donationService';
 const { TextArea } = Input;
 
-export const ModalAdicionarDoacao = () => {
+const ModalAdicionarDoacao = () => {
 	const [newDonation, setNewDonation] = useState({
 		type: '',
 		origin: '',
@@ -148,3 +148,4 @@ export const ModalAdicionarDoacao = () => {
 		</div>
 	);
 };
+export default ModalAdicionarDoacao;

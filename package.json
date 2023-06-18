@@ -15,7 +15,6 @@
 		"storybook": "storybook dev -p 6006 -s ./public",
 		"storybook:build": "storybook build -s public",
 		"prepare": "husky install",
-		"postbuild": "next-sitemap",
 		"check-types": "tsc --noEmit --pretty"
 	},
 	"dependencies": {
@@ -31,6 +30,7 @@
 		"axios": "^1.4.0",
 		"check-types": "^11.2.2",
 		"commitlint": "^17.6.5",
+		"cssnano": "^6.0.1",
 		"eslint": "^8.42.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-airbnb-typescript": "^17.0.0",
