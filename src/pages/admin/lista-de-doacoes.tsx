@@ -22,37 +22,67 @@ export default function ListaDeDoacoes({ donations }: any) {
 	const handleCancel = () => {
 		setIsModalOpen(false);
 	};
+	const originList: any = {
+		ad_campaigns: 'Campanhas publicitárias',
+		organic_website: 'Orgânico no site',
+		onsite_counter: 'Presencialmente em balcão',
+		word_of_mouth: 'Indicação de amigos e familiares',
+		social_media: 'Redes sociais',
+		supporter_member: 'Sócio-protetor',
+	};
+
+	const donerType: any = {
+		natural_person: 'Física',
+		legal_person: 'Jurídica',
+		person_of_private_law: 'Direito Privado',
+		anonymous: 'Anônima',
+	};
+
+	const resourceList: any = {
+		money: 'Dinheiro',
+		services: 'Serviço',
+		products: 'Produtos',
+		movable_property: 'Bens móveis',
+		real_estate: 'Bens imóveis',
+	};
 	const columns = [
 		{
-			title: 'Nome',
-			dataIndex: 'name',
-			key: 'name',
+			title: 'Tipo',
+			dataIndex: 'type',
+			key: 'type',
+			render: (val: any) => (val === 'online' ? 'Online' : 'Presencial'),
 			sorter: (a: any, b: any) => a.name - b.name,
 		},
 		{
-			title: 'Email',
-			dataIndex: 'email',
-			key: 'email',
-			sorter: (a: any, b: any) => a.amount - b.amount,
+			title: 'Origem',
+			dataIndex: 'origin',
+			key: 'origin',
+			render: (val: any) => originList[val],
 		},
 		{
-			title: 'Documento',
-			dataIndex: 'document',
-			key: 'document',
-			sorter: (a: any, b: any) => a.status - b.status,
-		},
-		{
-			title: 'Tipo do doador',
+			title: 'Tipo de doador',
 			dataIndex: 'donator_type',
 			key: 'donator_type',
-			render: (val: any) =>
-				val === 'natural_person' ? 'Pessoa física' : 'Pessoa jurídica',
+			render: (val: any) => donerType[val],
 			sorter: (a: any, b: any) => a.status - b.status,
 		},
 		{
-			title: 'Telefone',
-			dataIndex: 'phone_number',
-			key: 'phone_number',
+			title: 'Recurso',
+			dataIndex: 'resource',
+			key: 'resource',
+			render: (val: any) => resourceList[val],
+			sorter: (a: any, b: any) => a.status - b.status,
+		},
+		{
+			title: 'Descrição',
+			dataIndex: 'description',
+			key: 'description',
+			sorter: (a: any, b: any) => a.status - b.status,
+		},
+		{
+			title: 'Detalhes',
+			dataIndex: 'resource_details',
+			key: 'resource_details',
 			sorter: (a: any, b: any) => a.status - b.status,
 		},
 	];

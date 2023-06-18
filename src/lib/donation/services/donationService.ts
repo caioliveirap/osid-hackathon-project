@@ -1,9 +1,9 @@
 import api from '../../api.config';
 
-export const sendDonation = async (donator: any) => {
+export const sendDonation = async (donation: any) => {
 	try {
 		const response = await api.post(`/donations/create-new`, {
-			donator: donator,
+			donation: donation,
 		});
 		return response.data;
 	} catch (error) {

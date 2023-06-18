@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Table, Input, Button, Modal, Select, Radio } from 'antd';
 
 import Admin from '@/layouts/Admin';
+import {
+	getDonations,
+	sendDonation,
+} from '@/lib/donation/services/donationService';
 const { TextArea } = Input;
 
 export const ModalAdicionarDoacao = () => {
@@ -11,6 +15,8 @@ export const ModalAdicionarDoacao = () => {
 		product: '',
 		donator_type: '',
 		resource: '',
+		description: '',
+		resource_details: '',
 	});
 	const options = [
 		{ value: 'natural_person', label: 'Física' },
@@ -18,6 +24,11 @@ export const ModalAdicionarDoacao = () => {
 		{ value: 'person_of_private_law', label: 'Direito Privado' },
 		{ value: 'anonymous', label: 'Anônima' },
 	];
+
+	const registerDonation = async () => {
+		const save = await sendDonation(newDonation);
+		console.log(save);
+	};
 	return (
 		<div className="flex flex-col gap-6">
 			<div className="flex flex-col gap-4">
@@ -41,20 +52,6 @@ export const ModalAdicionarDoacao = () => {
 						<small className="text-red-500">*</small>Documento do doador
 					</label>
 					<Input id="document" />
-					{/* <Select
-					placeholder="CNPJ"
-					// value={newDonation.type}
-					// onChange={(value) => {
-					// 	setNewDonation((prevFormData) => ({
-					// 		...prevFormData,
-					// 		type: value,
-					// 	}));
-					// }}
-					options={[
-						{ value: 'online', label: 'Online' },
-						{ value: 'onsite', label: 'Presencial' },
-					]}
-				/> */}
 				</div>
 				<div className="flex flex-col gap-2 w-full">
 					<label htmlFor="type">Tipo</label>
@@ -113,8 +110,8 @@ export const ModalAdicionarDoacao = () => {
 						}}
 						options={[
 							{ value: 'money', label: 'Dinheiro' },
-							{ value: 'services', label: 'Orgânico no site' },
-							{ value: 'products', label: 'Presencialmente em balcão' },
+							{ value: 'services', label: 'Serviço' },
+							{ value: 'products', label: 'Produtos' },
 							{
 								value: 'movable_property',
 								label: 'Bens móveis',
@@ -123,38 +120,28 @@ export const ModalAdicionarDoacao = () => {
 						]}
 					/>
 				</div>
-				<div className="flex flex-col gap-2 w-full">
-					<label htmlFor="product">Produto</label>
-					<Select
-						placeholder="Online"
-						id="product"
-						value={newDonation.product}
-						onChange={(value) => {
-							setNewDonation((prevFormData) => ({
-								...prevFormData,
-								product: value,
-							}));
-						}}
-						options={[
-							{ value: 'money', label: 'Dinheiro' },
-							{ value: 'services', label: 'Orgânico no site' },
-							{ value: 'products', label: 'Presencialmente em balcão' },
-							{
-								value: 'movable_property',
-								label: 'Bens móveis',
-							},
-							{ value: 'real_estate', label: 'Bens imóveis' },
-						]}
-					/>
-				</div>
+
 				<div className="flex flex-col gap-2 w-full">
 					<label htmlFor="description">Descrição</label>
-					<TextArea id="description" rows={4} />
+					<TextArea
+						id="description"
+						onChange={(e) => {
+							setNewDonation((prevFormData) => ({
+								...prevFormData,
+								description: e.target.value,
+							}));
+						}}
+						rows={4}
+					/>
 				</div>
 			</div>
-			<div className="flex items-center justify-end">
+			<div className="flex items-center justify-end gap-2">
 				<Button>Cancelar</Button>
-				<Button className=" bg-blue-500" type="primary">
+				<Button
+					onClick={registerDonation}
+					className=" bg-blue-500"
+					type="primary"
+				>
 					Cadastrar doação
 				</Button>
 			</div>

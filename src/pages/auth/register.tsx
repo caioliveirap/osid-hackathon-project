@@ -1,17 +1,200 @@
 import React from 'react';
 
 // layout for page
+import Image from 'next/image';
 
 import Auth from '@/layouts/Auth';
-
+import { Button, Input } from 'antd';
+import { Tabs } from 'antd';
+import type { TabsProps } from 'antd';
 export default function Register() {
+	const items: TabsProps['items'] = [
+		{
+			key: '1',
+			label: `Pessoa física`,
+			children: (
+				<div className="flex flex-col gap-2.5 border-b border-solid border-gray-300 pb-6 mb-2.5">
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>Nome
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>CPF
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>E-Mail
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>Telefone
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+				</div>
+			),
+		},
+		{
+			key: '2',
+			label: `Pessoa jurídica`,
+			children: (
+				<div className="flex flex-col gap-2.5 border-b border-solid border-gray-300 pb-6 mb-2.5">
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>Nome da empresa
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>CNPJ
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>Nome do colaborador
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>E-Mail
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>Telefone
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+					<div className="flex flex-col items-start gap-2">
+						<label htmlFor="document" className="flex items-center gap-1">
+							{' '}
+							<small className="text-red-500">*</small>Tipo
+						</label>{' '}
+						<Input
+							id="buscar-doador"
+							// onChange={(e) => {
+							// 	setFilterParam(e.target.value);
+							// }}
+							// value={filterParam}
+						/>
+					</div>
+				</div>
+			),
+		},
+	];
+
 	return (
 		<>
-			<div className="container mx-auto px-4 h-screen">
-				<div className="flex content-center items-center justify-center h-full">
-					<div className="w-full lg:w-6/12 px-4">
-						<div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-							<div className="rounded-t mb-0 px-6 py-6">
+			<div
+				className="h-screen w-full flex items-center justify-center"
+				style={{
+					background: 'url("/images/login_bg.png")',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover',
+					backgroundColor: '#4DA2D5',
+					backgroundBlendMode: 'multiply',
+				}}
+			>
+				<div className="flex content-center items-center justify-center h-full w-full max-w-[512px]">
+					<div className="w-full px-4">
+						<div className=" flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+							<div className="bg-white p-6">
+								<div className="mb-4 flex items-center justify-center">
+									<Image
+										src={'/images/dulce_logo.png'}
+										width={210}
+										height={70}
+										alt={''}
+									/>
+								</div>
+
+								<h1 className="w-full text-center font-medium text-base border-b border-solid border-gray-300 pb-4 mb-6">
+									Formulário de Cadastro para Doações
+								</h1>
+								<Tabs defaultActiveKey="1" items={items} />
+
+								<div className="flex justify-end">
+									<Button className="bg-blue-500" type="primary">
+										Cadastrar
+									</Button>
+								</div>
+							</div>
+
+							{/* <div className="rounded-t mb-0 px-6 py-6">
 								<div className="text-center mb-3">
 									<h6 className="text-blueGray-500 text-sm font-bold">
 										Sign up with
@@ -111,7 +294,7 @@ export default function Register() {
 										</button>
 									</div>
 								</form>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

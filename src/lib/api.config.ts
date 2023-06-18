@@ -33,6 +33,13 @@ api.interceptors.request.use(
 api.interceptors.response.use(
 	(response) => {
 		Swal.close();
+		Swal.fire({
+			icon: 'success',
+			title: 'Sucesso!',
+			showCloseButton: false,
+			showCancelButton: false,
+			footer: '',
+		});
 		return response;
 	},
 	(error) => {
