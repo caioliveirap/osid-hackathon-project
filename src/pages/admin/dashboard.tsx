@@ -7,7 +7,6 @@ import UpperGraph from './components/upperGraph';
 export default function Dashboard() {
 	return (
 		<div className="">
-			<span>teste</span>
 			<UpperGraph />
 			{/* <input
 				type="text"
