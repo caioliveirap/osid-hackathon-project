@@ -43,6 +43,11 @@ const items: MenuItem[] = [
 		'5',
 		<FileOutlined />
 	),
+	getItem(
+		<Link href={'/admin/gerar-campanha'}>Gerar campanha</Link>,
+		'6',
+		<FileOutlined />
+	),
 ];
 
 const App: React.FC = ({ children }: any) => {
