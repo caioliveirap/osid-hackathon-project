@@ -31,7 +31,7 @@ function getItem(
 const items: MenuItem[] = [
 	getItem('Dashboard', 'sub1', <UserOutlined />, [
 		getItem(<Link href={'/admin/dashboard'}>Doações</Link>, '2'),
-		getItem('Campanhas', '3'),
+		getItem(<Link href={'/admin/campanhas'}>Campanhas</Link>, '3'),
 	]),
 	getItem(
 		<Link href={'/admin/lista-de-doadores'}>Lista de Doadores</Link>,
