@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 import Admin from '@/layouts/Admin';
+import UpperGraph from './components/upperGraph';
 
 export default function Dashboard() {
 	return (
 		<div className="">
 			<span>teste</span>
-
+			<UpperGraph />
 			{/* <input
 				type="text"
 				placeholder="email"
