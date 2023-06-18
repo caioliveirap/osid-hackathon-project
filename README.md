@@ -69,7 +69,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-#### 🎲 Rodando o Backend (servidor)
+#### 🧭 Rodando a aplicação web (Frontend)
 
 ```bash
 
@@ -85,33 +85,6 @@ $ yarn
 # Execute a aplicação em modo de desenvolvimento
 $ yarn dev
 
-# O servidor inciará na porta:3000 - acesse http://localhost:3000
-
-```
-
-<p align="center">
-  <a href="https://github.com/cubos-academy/academy-template-readme-projects" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
-
-#### 🧭 Rodando a aplicação web (Frontend)
-
-```bash
-
-# Clone este repositório
-$ git clone git@github.com:cubos-academy/academy-template-readme-projects.git
-
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd academy-template-readme-projects
-
-# Vá para a pasta da aplicação Front End
-$ cd web
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start
-
 # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
 ```
@@ -122,7 +95,7 @@ $ npm run start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Website** ([React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/))
+#### **Website** ([Nextjs](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/))
 
 - **[NextJS](https://nextjs.org/)**
 - **[Axios](https://github.com/axios/axios)**
