@@ -11,7 +11,7 @@ class MyDocument extends Document {
 
 			<Html>
 				<Head />
-				<body>
+				<body className="m-0">
 					<Main />
 					<NextScript />
 				</body>
