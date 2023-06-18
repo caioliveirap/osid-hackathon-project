@@ -4,7 +4,7 @@ import { Table, Input, Button, Modal } from 'antd';
 import Admin from '@/layouts/Admin';
 import { GetServerSideProps } from 'next';
 import { getDonations } from '@/lib/donation/services/donationService';
-import { ModalAdicionarDoacao } from './components-doacoes/modal-adicionar-doacao';
+import ModalAdicionarDoacao from './components-doacoes/modal-adicionar-doacao';
 
 export default function ListaDeDoacoes({ donations }: any) {
 	const [donationsList, setDonationsList] = useState(donations.data);
