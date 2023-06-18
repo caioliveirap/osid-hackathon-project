@@ -6,7 +6,7 @@
 
 <p align="center">
 	<img alt="Status Em Desenvolvimento" src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-green">
-	<img alt="Status Concluído" src="https://img.shields.io/badge/STATUS-CONCLU%C3%8DDO-brightgreen">
+	<!-- <img alt="Status Concluído" src="https://img.shields.io/badge/STATUS-CONCLU%C3%8DDO-brightgreen"> -->
 </p>
 
 <p align="center">
@@ -52,6 +52,7 @@ O layout da aplicação está disponível no Figma:
 <a href="https://www.figma.com/file/SP2BbR9KTIhgxn5fusQvGm/Hackathon-OSID-2023?type=design&node-id=1-2&t=LVUkgjdLFywRxsDo-0">
   <img alt="Made by Equipe 50%" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
+
 ---
 
 ## 🛣️ Como executar o projeto
