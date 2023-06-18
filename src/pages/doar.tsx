@@ -9,23 +9,20 @@ import { sendDonation } from '@/lib/donation/services/donationService';
 export default function Doar() {
 	const [donatorProfile, setDonatorProfile] = useState('natural_person');
 	const [formDataNaturalPerson, setFormDataNaturalPerson] = useState({
-		client_type: '',
+		donator_type: 'natural_person',
 		name: '',
 		email: '',
-		donation_type: '',
 		document: '',
-		donator_profile: 'natural_person',
 		phone_number: '',
-		// Add more fields as needed
 	});
 
 	const [formDataLegalPerson, setFormDataLegalPerson] = useState({
+		donator_type: 'legal_person',
 		company_name: '',
 		colaborator_name: '',
 		document: '',
 		email: '',
 		phone_number: '',
-		donator_profile: 'legal_person',
 	});
 
 	const handleChangeNaturalPerson = (event: any) => {
@@ -53,19 +50,7 @@ export default function Doar() {
 		}
 		try {
 			const send = await sendDonation(body);
-			console.log(send);
-			// Swal.fire({
-			// 	icon: 'success',
-			// 	title: 'Success',
-			// 	text: 'Sucesso!',
-			// });
-		} catch (error) {
-			// Swal.fire({
-			// 	icon: 'error',
-			// 	title: 'Success',
-			// 	text: 'Sucesso!',
-			// });
-		}
+		} catch (error) {}
 	};
 
 	return (
@@ -93,8 +78,7 @@ export default function Doar() {
 											]}
 										/>
 									</div>
-									{formDataNaturalPerson.donator_profile ===
-									'natural_person' ? (
+									{formDataNaturalPerson.donator_type === 'natural_person' ? (
 										<>
 											<div className="flex items-center gap-4 w-full">
 												<div className="flex flex-col gap-2 w-full">

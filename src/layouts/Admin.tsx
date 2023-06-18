@@ -96,6 +96,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import Link from 'next/link';
 type MenuItem = Required<MenuProps>['items'][number];
 
 const { Header, Content, Sider } = Layout;
@@ -115,14 +116,23 @@ function getItem(
 
 const items: MenuItem[] = [
 	getItem('Dashboard', 'sub1', <UserOutlined />, [
-		getItem('Doações', '2'),
+		getItem(<Link href={'/admin/dashboard'}>Doações</Link>, '2'),
 		getItem('Campanhas', '3'),
 	]),
 	// getItem('Formulário', 'sub2', <TeamOutlined />, [
 	// 	getItem('Team 1', '4'),
 	// 	getItem('Team 2', '5'),
 	// ]),
-	getItem('Lista de doadores', '4', <FileOutlined />),
+	getItem(
+		<Link href={'/admin/lista-de-doadores'}>Lista de Doadores</Link>,
+		'4',
+		<FileOutlined />
+	),
+	getItem(
+		<Link href={'/admin/lista-de-doacoes'}>Lista de Doações</Link>,
+		'4',
+		<FileOutlined />
+	),
 ];
 
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -186,10 +196,9 @@ const App: React.FC = ({ children }: any) => {
 					</Breadcrumb>
 					<Content
 						style={{
-							padding: 24,
+							// padding: 24,
 							margin: 0,
 							minHeight: 280,
-							background: colorBgContainer,
 						}}
 					>
 						{children}
