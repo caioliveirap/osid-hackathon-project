@@ -2,10 +2,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const api = axios.create({
-	baseURL:
-		process.env.NODE_ENV === 'production'
-			? process.env.BACKEND_URI
-			: 'http://localhost:3001/',
+	baseURL: 'https://osid-hackathon-backend.onrender.com',
 	headers: {
 		'Content-Type': 'application/json',
 	},
