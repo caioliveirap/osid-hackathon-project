@@ -159,19 +159,10 @@ export default function Register() {
 
 	return (
 		<>
-			<div
-				className="h-screen w-full flex items-center justify-center"
-				style={{
-					background: 'url("/images/login_bg.png")',
-					backgroundRepeat: 'no-repeat',
-					backgroundSize: 'cover',
-					backgroundColor: '#4DA2D5',
-					backgroundBlendMode: 'multiply',
-				}}
-			>
+			<div className="w-full flex items-center justify-center my-8">
 				<div className="flex content-center items-center justify-center h-full w-full max-w-[512px]">
 					<div className="w-full px-4">
-						<div className=" flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+						<div className=" flex flex-col min-w-0  w-full shadow-lg rounded-lg bg-blueGray-200 border-0">
 							<div className="bg-white p-6">
 								<div className="mb-4 flex items-center justify-center">
 									<Image
