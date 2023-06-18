@@ -130,7 +130,7 @@ const items: MenuItem[] = [
 	),
 	getItem(
 		<Link href={'/admin/lista-de-doacoes'}>Lista de Doações</Link>,
-		'4',
+		'5',
 		<FileOutlined />
 	),
 ];

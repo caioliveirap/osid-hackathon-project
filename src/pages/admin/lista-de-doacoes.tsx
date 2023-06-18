@@ -1,31 +1,27 @@
 import React, { useState } from 'react';
-import { Table, Input, Button } from 'antd';
+import { Table, Input, Button, Modal } from 'antd';
 
 import Admin from '@/layouts/Admin';
 import { GetServerSideProps } from 'next';
 import { getDonations } from '@/lib/donation/services/donationService';
+import { ModalAdicionarDoacao } from './components-doacoes/modal-adicionar-doacao';
 
-export default function ListaDeDoadores({ donators }: any) {
-	const [donatorsList, setDonatorsList] = useState(donators.data);
+export default function ListaDeDoacoes({ donations }: any) {
+	const [donationsList, setDonationsList] = useState(donations.data);
 	const [filterParam, setFilterParam] = useState('');
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	// const dataSource = [
-	// 	{
-	// 		name: 'Caio de Oliveira Pinto',
-	// 		email: 'caio191201@gmail.com',
-	// 		phone_number: '(75) 99103-3357',
-	// 		donator_type: 'Pessoa física',
-	// 		document: '082.875.820-40',
-	// 	},
-	// 	{
-	// 		name: 'Caio de Oliveira Pinto',
-	// 		email: 'caio191201@gmail.com',
-	// 		phone_number: '(75) 99103-3357',
-	// 		donator_type: 'Pessoa Jurídica',
-	// 		document: '47.252.607/0001-22',
-	// 	},
-	// ];
+	const showModal = () => {
+		setIsModalOpen(true);
+	};
 
+	const handleOk = () => {
+		setIsModalOpen(false);
+	};
+
+	const handleCancel = () => {
+		setIsModalOpen(false);
+	};
 	const columns = [
 		{
 			title: 'Nome',
@@ -62,7 +58,7 @@ export default function ListaDeDoadores({ donators }: any) {
 	];
 
 	const filter = () => {
-		let newDonatorList = [...donators.data];
+		let newDonatorList = [...donations.data];
 		newDonatorList = newDonatorList.filter((key) => {
 			if (
 				key.email.toLowerCase().includes(filterParam) ||
@@ -72,60 +68,75 @@ export default function ListaDeDoadores({ donators }: any) {
 				return key;
 			}
 		});
-		setDonatorsList(newDonatorList);
+		setDonationsList(newDonatorList);
 	};
 
 	return (
-		<div className="">
-			<div className="bg-white mb-6 p-6 flex items-center justify-between">
-				<div className="flex items-center gap-2">
-					<label htmlFor="buscar-doador">Buscar: </label>
-					<Input
-						id="buscar-doador"
-						onChange={(e) => {
-							setFilterParam(e.target.value);
-						}}
-						value={filterParam}
+		<>
+			<Modal
+				title="Adicionar nova doação"
+				open={isModalOpen}
+				onOk={handleOk}
+				onCancel={handleCancel}
+				footer={null}
+			>
+				<ModalAdicionarDoacao />
+			</Modal>
+			<div className="">
+				<div className="bg-white mb-6 p-6 flex items-center justify-between">
+					<div className="flex items-center gap-2">
+						<label htmlFor="buscar-doador">Buscar: </label>
+						<Input
+							id="buscar-doador"
+							onChange={(e) => {
+								setFilterParam(e.target.value);
+							}}
+							value={filterParam}
+						/>
+					</div>
+					<div className="flex gap-2">
+						<Button
+							onClick={() => {
+								setDonationsList(donations.data);
+								setFilterParam('');
+							}}
+						>
+							Limpar
+						</Button>
+						<Button onClick={filter} className=" bg-blue-500" type="primary">
+							Consulta
+						</Button>
+					</div>
+				</div>
+				<div className="bg-white p-6">
+					<div className="mb-4 flex items-center justify-between">
+						<h1 className="text-base text-medium">Doações</h1>
+						<div className="">
+							{/* <Button>Limpar</Button> */}
+							<Button
+								onClick={showModal}
+								className=" bg-blue-500"
+								type="primary"
+							>
+								Adicionar Novo
+							</Button>
+						</div>
+					</div>
+					<Table
+						className="w-full"
+						pagination={{ pageSize: 5 }}
+						dataSource={donationsList}
+						columns={columns}
 					/>
 				</div>
-				<div className="flex gap-2">
-					<Button
-						onClick={() => {
-							setDonatorsList(donators.data);
-							setFilterParam('');
-						}}
-					>
-						Limpar
-					</Button>
-					<Button onClick={filter} className=" bg-blue-500" type="primary">
-						Consulta
-					</Button>
-				</div>
 			</div>
-			<div className="bg-white p-6">
-				<div className="mb-4">
-					<h1 className="text-base text-medium">Doadores</h1>
-				</div>
-				<Table
-					className="w-full"
-					pagination={{ pageSize: 5 }}
-					dataSource={donatorsList}
-					columns={columns}
-				/>
-			</div>
-
-			{/* <ul>
-				{donatorsList.map((item: any, _index: any) => {
-					return <li key={`donator-${_index}`}>{item.name}</li>;
-				})}
-			</ul> */}
-		</div>
+		</>
 	);
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const donators = await getDonations();
-	return { props: { donators } };
+	const donations = await getDonations();
+	return { props: { donations } };
 };
 
-ListaDeDoadores.layout = Admin;
+ListaDeDoacoes.layout = Admin;

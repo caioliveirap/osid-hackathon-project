@@ -9,23 +9,6 @@ export default function ListaDeDoadores({ donators }: any) {
 	const [donatorsList, setDonatorsList] = useState(donators.data);
 	const [filterParam, setFilterParam] = useState('');
 
-	// const dataSource = [
-	// 	{
-	// 		name: 'Caio de Oliveira Pinto',
-	// 		email: 'caio191201@gmail.com',
-	// 		phone_number: '(75) 99103-3357',
-	// 		donator_type: 'Pessoa física',
-	// 		document: '082.875.820-40',
-	// 	},
-	// 	{
-	// 		name: 'Caio de Oliveira Pinto',
-	// 		email: 'caio191201@gmail.com',
-	// 		phone_number: '(75) 99103-3357',
-	// 		donator_type: 'Pessoa Jurídica',
-	// 		document: '47.252.607/0001-22',
-	// 	},
-	// ];
-
 	const columns = [
 		{
 			title: 'Nome',
@@ -113,12 +96,6 @@ export default function ListaDeDoadores({ donators }: any) {
 					columns={columns}
 				/>
 			</div>
-
-			{/* <ul>
-				{donatorsList.map((item: any, _index: any) => {
-					return <li key={`donator-${_index}`}>{item.name}</li>;
-				})}
-			</ul> */}
 		</div>
 	);
 }

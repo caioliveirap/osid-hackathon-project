@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 import Admin from '@/layouts/Admin';
-import UpperGraph from './components/upperGraph';
-import DonationGraph from './components/donationGraph';
-import ProductsTable from './components/productsTable';
+import UpperGraph from './components-dashboard/upperGraph';
+import DonationGraph from './components-dashboard/donationGraph';
+import ProductsTable from './components-dashboard/productsTable';
 
 export default function Dashboard() {
 	return (
