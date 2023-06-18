@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }: any) {
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/> */}
-				<title>Irmã dulce</title>
+				<title>Dulce insights</title>
 				<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 			</Head>
 			<Layout>

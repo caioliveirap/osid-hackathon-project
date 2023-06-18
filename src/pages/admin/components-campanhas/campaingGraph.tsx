@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Tabs, Badge } from 'antd';
+import { Tabs, Badge, Radio } from 'antd';
 import axios from 'axios';
 import Admin from '@/layouts/Admin';
 import type { TabsProps } from 'antd';
@@ -11,7 +11,7 @@ const options: any = {
 		type: 'pie',
 	},
 	title: {
-		text: 'Comparativo PJ x PF',
+		text: '',
 	},
 	plotOptions: {
 		pie: {
@@ -39,14 +39,34 @@ const options: any = {
 			borderRadius: 5,
 			data: [
 				{
-					name: 'PJ',
-					y: 305992,
+					name: 'Black Friday',
+					y: 505992,
 					z: 92,
 				},
 				{
-					name: 'PF',
+					name: 'Dia Santa Dulce',
 					y: 551695,
 					z: 119,
+				},
+				{
+					name: 'Inverno amigo',
+					y: 312679,
+					z: 121,
+				},
+				{
+					name: 'Natal',
+					y: 78865,
+					z: 136,
+				},
+				{
+					name: 'São João',
+					y: 301336,
+					z: 200,
+				},
+				{
+					name: 'Cobertores',
+					y: 41284,
+					z: 213,
 				},
 			],
 			colors: [
@@ -61,9 +81,22 @@ const options: any = {
 	],
 };
 
-export default function DonationGraph({ chartProps }: any) {
+export default function CampaingGraph({ chartProps }: any) {
+	const optionsRadio = [
+		{ value: '1', label: 'Todas' },
+		{ value: '2', label: 'Online' },
+		{ value: '3', label: 'Lojas' },
+	];
 	return (
-		<div className="flex gap-16 justify-between p-6">
+		<div className="flex flex-col gap-16 justify-between p-6">
+			<div className="flex items-center justify-between">
+				<span className="font-medium text-base">A proporção de campanhas</span>
+				<Radio.Group
+					defaultValue="1"
+					options={optionsRadio}
+					optionType="button"
+				/>
+			</div>
 			<HighchartsReact
 				width={300}
 				responsive={true}

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Tabs, Badge } from 'antd';
+import { Tabs, Badge, Radio } from 'antd';
 import axios from 'axios';
 import Admin from '@/layouts/Admin';
 import type { TabsProps } from 'antd';
@@ -11,7 +11,7 @@ const options: any = {
 		type: 'pie',
 	},
 	title: {
-		text: 'Comparativo PJ x PF',
+		text: '',
 	},
 	plotOptions: {
 		pie: {
@@ -40,7 +40,7 @@ const options: any = {
 			data: [
 				{
 					name: 'PJ',
-					y: 305992,
+					y: 35992,
 					z: 92,
 				},
 				{
@@ -61,9 +61,22 @@ const options: any = {
 	],
 };
 
-export default function DonationGraph({ chartProps }: any) {
+export default function ProportionGraph({ chartProps }: any) {
+	const optionsRadio = [
+		{ value: '1', label: 'Todas' },
+		{ value: '2', label: 'Online' },
+		{ value: '3', label: 'Lojas' },
+	];
 	return (
-		<div className="flex gap-16 justify-between p-6">
+		<div className="flex flex-col gap-16 justify-between p-6">
+			<div className="flex items-center justify-between">
+				<span className="font-medium text-base">Comparativo PJ x PF</span>
+				<Radio.Group
+					defaultValue="1"
+					options={optionsRadio}
+					optionType="button"
+				/>
+			</div>
 			<HighchartsReact
 				width={300}
 				responsive={true}
