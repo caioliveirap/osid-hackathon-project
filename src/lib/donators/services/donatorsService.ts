@@ -9,3 +9,13 @@ export const getDonators = async () => {
 		throw error;
 	}
 };
+
+export const sendDonators = async (donator: any) => {
+	try {
+		const response = await api.post(`/donators/create-new`, donator);
+		return response.data;
+	} catch (error) {
+		console.error(error);
+		throw error;
+	}
+};

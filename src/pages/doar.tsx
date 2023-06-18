@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 // layout for page
 import { Button, Input, Radio, Select, Tabs } from 'antd';
@@ -9,6 +10,8 @@ import { sendDonation } from '@/lib/donation/services/donationService';
 import { WhatsAppOutlined } from '@ant-design/icons';
 
 export default function Doar() {
+	const router = useRouter();
+
 	const [step, setStep] = useState(1);
 	const [donation, setDonation] = useState({
 		type: 'online',
